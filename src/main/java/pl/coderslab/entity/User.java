@@ -10,6 +10,8 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -27,4 +29,7 @@ public class User {
     private int pin;
     @Digits(integer=15, fraction=2)
     private double salary;
+
+    @ManyToMany
+    private List<Budget> budgets = new ArrayList<>();
 }
