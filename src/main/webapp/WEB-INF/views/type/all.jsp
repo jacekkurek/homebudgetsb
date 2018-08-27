@@ -6,25 +6,30 @@
 </head>
 <body>
 
-<h1>Types List</h1>
+<%@include file="../header.jsp" %>
+
+<h1>Type List</h1>
+
 <table>
     <thead>
     <tr>
-        <td>Id</td>
         <td>Name</td>
+        <td>Operation</td>
     </tr>
     </thead>
     <c:forEach items="${types}" var="type">
         <tr>
-            <td> ${type.id} </td>
-            <td> ${type.name}</td>
+            <td>${type.name}</td>
             <td>
-                <a class="confirm" href="/type/delete/${type.id}">delete</a>
-                <a class="confirm" href="/type/update?id=${type.id}">edit</a>
+                <a href="/type/delete/${type.id}">Delete</a>
+                <a href="/type/edit?id=${type.id}">Edit</a>
             </td>
         </tr>
     </c:forEach>
-
+    <tr>
+        <td></td>
+        <td><a href="/type/add">Add</a></td>
+    </tr>
 </table>
 
 </body>
