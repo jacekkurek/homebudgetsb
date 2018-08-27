@@ -1,0 +1,78 @@
+package pl.coderslab.controller;
+
+import lombok.extern.java.Log;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.entity.Budget;
+import pl.coderslab.entity.User;
+import pl.coderslab.repository.BudgetRepository;
+
+import javax.validation.Valid;
+import javax.validation.Validator;
+
+@Controller
+@RequestMapping("/budget")
+@Log
+public class BudgetController {
+
+    private final BudgetRepository budgetRepository;
+
+    public BudgetController(BudgetRepository budgetRepository) {
+        this.budgetRepository = budgetRepository;
+    }
+
+    @Autowired
+    Validator validator;
+
+    @GetMapping("/add")
+    public String addNew(Model model) {
+        model.addAttribute("budget", new Budget());
+        return "budget/add";
+    }
+
+    @PostMapping("/add")
+    public String performNew(Model model, @Valid Budget budget, BindingResult result) {
+        if (result.hasErrors()) {
+            System.out.println("EEEEEEEEE");
+            return "budget/add";
+        }
+
+        budgetRepository.save(budget);
+        return "redirect:/budget/all";
+    }
+
+    @GetMapping("/all")
+    public String list(Model model) {
+        model.addAttribute("budget", budgetRepository.findAll());
+        return "budget/all";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable long id) {
+        budgetRepository.delete(id);
+        return "redirect:/budget/all";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(Model model, @PathVariable long id) {
+        model.addAttribute("budget", budgetRepository.findOne(id));
+        return "budget/edit";
+    }
+
+    @PostMapping("/edit/*")
+    public String editPerform(Model model, @Valid Budget budget, BindingResult result) {
+        if (result.hasErrors()) {
+            System.out.println("EEEEEEEEE");
+
+            return "budget/edit";
+        }
+        budgetRepository.save(budget);
+        return "redirect:/budget/all";
+    }
+}
