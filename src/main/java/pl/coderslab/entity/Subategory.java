@@ -10,8 +10,8 @@ import javax.validation.constraints.Size;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "categories")
-public class Category {
+@Table(name = "subcategories")
+public class Subategory {
 
 
     @Id
@@ -23,6 +23,9 @@ public class Category {
 
     @ManyToOne
     private Budget budget;
+
+    @ManyToOne
+    private Category category;
 
 
 }
