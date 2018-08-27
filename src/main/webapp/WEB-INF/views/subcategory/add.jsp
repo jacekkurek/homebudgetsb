@@ -11,17 +11,17 @@
            uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Add category</title>
+    <title>Add subcategory</title>
     <link rel="stylesheet" href="../../../../resources/static/css/style.css">
 </head>
 <body>
 <%@include file="../header.jsp" %></br>
-<%@include file="category_menu.jsp" %></br>
+<%@include file="subcategory_menu.jsp" %></br>
 
 <h1>Add new category</h1>
 
-<form:form method="post" modelAttribute="category">
-    <%@include file="category_form.jsp" %>
+<form:form method="post" modelAttribute="subcategory">
+    <%@include file="subcategory_form.jsp" %>
     <input type="submit" value="Save">
 </form:form>
 
