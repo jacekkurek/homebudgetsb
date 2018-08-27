@@ -9,21 +9,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.entity.Budget;
 import pl.coderslab.entity.User;
-import pl.coderslab.repository.UserRepository;
+import pl.coderslab.repository.BudgetRepository;
 
 import javax.validation.Valid;
 import javax.validation.Validator;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/budget")
 @Log
-public class UserController {
+public class BudgetController {
 
-    private final UserRepository userRepository;
+    private final BudgetRepository budgetRepository;
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public BudgetController(BudgetRepository budgetRepository) {
+        this.budgetRepository = budgetRepository;
     }
 
     @Autowired
@@ -31,47 +32,47 @@ public class UserController {
 
     @GetMapping("/add")
     public String addNew(Model model) {
-        model.addAttribute("user", new User());
-        return "user/add";
+        model.addAttribute("budget", new Budget());
+        return "budget/add";
     }
 
     @PostMapping("/add")
-    public String performNew(Model model, @Valid User user, BindingResult result) {
+    public String performNew(Model model, @Valid Budget budget, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println("EEEEEEEEE");
-            return "user/add";
+            return "budget/add";
         }
 
-        userRepository.save(user);
-        return "redirect:/user/all";
+        budgetRepository.save(budget);
+        return "redirect:/budget/all";
     }
 
     @GetMapping("/all")
     public String list(Model model) {
-        model.addAttribute("users", userRepository.findAll());
-        return "user/all";
+        model.addAttribute("budget", budgetRepository.findAll());
+        return "budget/all";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable long id) {
-        userRepository.delete(id);
-        return "redirect:/user/all";
+        budgetRepository.delete(id);
+        return "redirect:/budget/all";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable long id) {
-        model.addAttribute("user", userRepository.findOne(id));
-        return "user/edit";
+        model.addAttribute("budget", budgetRepository.findOne(id));
+        return "budget/edit";
     }
 
     @PostMapping("/edit/*")
-    public String editPerform(Model model, @Valid User user, BindingResult result) {
+    public String editPerform(Model model, @Valid Budget budget, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println("EEEEEEEEE");
 
-            return "user/edit";
+            return "budget/edit";
         }
-        userRepository.save(user);
-        return "redirect:/user/all";
+        budgetRepository.save(budget);
+        return "redirect:/budget/all";
     }
 }
