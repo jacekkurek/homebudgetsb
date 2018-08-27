@@ -2,16 +2,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Create</title>
+    <title>Add New</title>
 </head>
 <body>
 
-<h1>Podaj nazwę operacji do zapisania w bazie danych w tabeli "type"</h1>
+<%@include file="../header.jsp" %>
+
+<h1>Add New Type</h1>
 
 <form:form method="post" modelAttribute="type">
-    <div>Nazwa transakcji:<div/>
-    <form:input path="name"/>
-    <input type="submit" value="Zatwierdź">
+    <%@include file="type_form.jsp" %>
 </form:form>
 
 </body>
