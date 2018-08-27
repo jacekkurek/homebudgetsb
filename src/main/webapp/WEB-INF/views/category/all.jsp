@@ -39,7 +39,6 @@
 
 </table>
 
-<%@include file="category_form.jsp" %>
 <%@include file="../footer.jsp" %>
 
 
