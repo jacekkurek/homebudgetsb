@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @Table(name = "subcategories")
-public class Subategory {
+public class Subcategory {
 
 
     @Id

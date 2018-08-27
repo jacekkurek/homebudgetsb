@@ -11,28 +11,30 @@
            uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>All categories</title>
+    <title>All subcategories</title>
     <link rel="stylesheet" href="../../../../resources/static/css/style.css">
 </head>
 <body>
 <%@include file="../header.jsp"%></br>
-<%@include file="category_menu.jsp"%></br>
-<h1>All categories</h1>
+<%@include file="subcategory_menu.jsp"%></br>
+<h1>All subcategories</h1>
 
 <table>
     <thead>
     <tr>
         <td>id</td>
         <td>name</td>
+        <td>category</td>
     </tr>
     </thead>
-    <c:forEach items="${categories}" var="category">
+    <c:forEach items="${subcategories}" var="subcategory">
         <tr>
-            <td> ${category.id} </td>
-            <td> ${category.name} </td>
+            <td> ${subcategory.id} </td>
+            <td> ${subcategory.name} </td>
+            <td> ${subcategory.category.name} </td>
             <td>
-                <a href="/category/delete/${category.id}">delete</a>
-                <a href="/category/edit/${category.id}">edit</a>
+                <a href="/category/delete/${subcategory.id}">delete</a>
+                <a href="/category/edit/${subcategory.id}">edit</a>
             </td>
         </tr>
     </c:forEach>

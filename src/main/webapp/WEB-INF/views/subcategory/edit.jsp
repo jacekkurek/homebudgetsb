@@ -11,20 +11,19 @@
            uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="../../../resources/static/css/style.css">
-
+    <title>Edit subcategory</title>
 </head>
 <body>
-<%@include file="../header.jsp" %></br>
-<%@include file="user_menu.jsp" %></br>
+<%@include file="../header.jsp" %>
+<%@include file="subcategory_menu.jsp" %></br>
+<h1>Edit subcategory</h1>
 
-<form:form method="post"  modelAttribute="user">
-    <%@include file="user_form.jsp"%>
+<form:form method="post" modelAttribute="subcategory">
+    <%@include file="subcategory_form.jsp" %>
     <input type="submit" value="Update">
 </form:form>
 
-<%@include file="../footer.jsp" %></br>
+<%@include file="../footer.jsp" %>
 
 </body>
 </html>

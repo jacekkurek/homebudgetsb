@@ -15,6 +15,7 @@
 </head>
 <body>
 <%@include file="../header.jsp" %>
+<%@include file="category_menu.jsp" %></br>
 <h1>Edit category</h1>
 
 <form:form method="post" modelAttribute="category">

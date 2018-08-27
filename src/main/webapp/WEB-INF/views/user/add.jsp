@@ -16,6 +16,8 @@
 </head>
 <body>
 <%@include file="../header.jsp" %></br>
+<%@include file="user_menu.jsp" %></br>
+
 <form:form method="post" modelAttribute="user">
     <%@include file="user_form.jsp"%>
     <input type="submit" value="Save">
