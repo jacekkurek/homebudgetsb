@@ -43,7 +43,7 @@ public class TypeController {
             return "type/create";
         } else {
             typeService.save(type);
-            return "redirect:/type/list";
+            return "redirect:/type/all";
         }
 
     }
@@ -85,7 +85,7 @@ public class TypeController {
             return "type/update";
         } else {
             typeService.save(type);
-            return "redirect:/type/list";
+            return "redirect:/type/all";
         }
 
     }
@@ -103,7 +103,7 @@ public class TypeController {
             return "type/delete";
         } else {
             typeService.delete(id);
-            return "redirect:/type/list";
+            return "redirect:/type/all";
         }
 
     }
@@ -111,14 +111,14 @@ public class TypeController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         typeService.delete(id);
-        return "redirect:/type/list";
+        return "redirect:/type/all";
     }
 
 
-    @GetMapping("/list")
+    @GetMapping("/all")
     public String findAll(Model model) {
         model.addAttribute("types", typeService.finAll());
-        return "type/list";
+        return "type/all";
     }
 
 }
