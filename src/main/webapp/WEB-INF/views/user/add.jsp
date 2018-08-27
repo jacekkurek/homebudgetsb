@@ -12,16 +12,16 @@
 <html>
 <head>
     <title>User</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../resources/static/css/style.css">
 </head>
 <body>
-<jsp:include page="header.jsp"/></br>
+<%@include file="../header.jsp" %></br>
 <form:form method="post" modelAttribute="user">
     <%@include file="user_form.jsp"%>
     <input type="submit" value="Save">
 </form:form>
 
-<jsp:include page="footer.jsp"/></br>
+<%@include file="../footer.jsp" %></br>
 
 </body>
 </html>
