@@ -24,10 +24,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Size(max = 25)
+    @Column(length = 25, unique = true)
     private String name;
     @Digits(integer=4, fraction=0)
+    @Column(precision = 4)
     private int pin;
     @Digits(integer=15, fraction=2)
+    @Column(precision = 15, scale = 2)
     private double salary;
 
     @ManyToMany

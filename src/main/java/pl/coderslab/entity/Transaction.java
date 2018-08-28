@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -23,11 +24,16 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private LocalDateTime time_added;
+    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(nullable = false)
     private LocalDate time_transaction;
     @Size(max = 50)
+    @Column(length = 50)
     private String name;
+    @NotNull
     @Digits(integer = 15, fraction = 2)
+    @Column(precision = 15, scale = 2, nullable = false)
     private Double value;
 
     @ManyToOne
@@ -41,4 +47,9 @@ public class Transaction {
 
     @ManyToOne
     private Category category;
+
+    @ManyToOne
+    private Subcategory subcategory;
+
+
 }

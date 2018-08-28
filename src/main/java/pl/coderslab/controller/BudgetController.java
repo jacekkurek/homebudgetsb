@@ -49,7 +49,7 @@ public class BudgetController {
 
     @GetMapping("/all")
     public String list(Model model) {
-        model.addAttribute("budget", budgetRepository.findAll());
+        model.addAttribute("budgets", budgetRepository.findAll());
         return "budget/all";
     }
 

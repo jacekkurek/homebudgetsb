@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +21,13 @@ public class Budget {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotNull
     @Size(max = 50)
+    @Column(length = 50, nullable = false)
     private String name;
-    @Digits(integer=15, fraction=2)
-    private double saldo;
+    @Size(max = 255)
+    private String description;
+
 
     @ManyToMany(mappedBy = "budgets")
     private List<User> users = new ArrayList<>();

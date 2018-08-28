@@ -1,6 +1,7 @@
 package pl.coderslab.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Data
+@NoArgsConstructor
 @Table(name = "types")
 public class Type {
 
