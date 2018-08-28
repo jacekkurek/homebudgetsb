@@ -13,6 +13,7 @@ import pl.coderslab.service.TransactionService;
 
 import javax.validation.Valid;
 import javax.validation.Validator;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class TransactionController {
 
         }
 
-        transaction.setTime_added(LocalDateTime.now());
+        transaction.setTimeAdded(LocalDateTime.now());
         transactionRepository.save(transaction);
         return "redirect:/transaction/all";
     }
@@ -86,8 +87,16 @@ public class TransactionController {
     }
 
     @GetMapping("/raport")
-    public String transactionRaport(Model model) {
-        model.addAttribute("traport", transactionService.makeTransactionRaport());
+    public String raport() {
+        return "transaction/raport";
+    }
+
+    @PostMapping("/raport")
+    public String raport(Model model, @RequestParam String after, @RequestParam String before) {
+        LocalDate afterDate = LocalDate.parse(after);
+        LocalDate beforeDate = LocalDate.parse(before);
+        List<Transaction> raports = transactionService.raportBetweenDate(afterDate, beforeDate);
+        model.addAttribute("raports", raports);
         return "transaction/raport";
     }
 

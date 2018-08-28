@@ -2,15 +2,13 @@ package pl.coderslab.service;
 
 import org.springframework.stereotype.Service;
 import pl.coderslab.entity.Transaction;
-import pl.coderslab.entity.Type;
 import pl.coderslab.repository.TransactionRepository;
-import pl.coderslab.repository.UserRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class TransactionService {
-
 
     private final TransactionRepository transactionRepository;
 
@@ -18,9 +16,8 @@ public class TransactionService {
         this.transactionRepository = transactionRepository;
     }
 
-    public List<Transaction> makeTransactionRaport() {
-        return transactionRepository.transactionRaport();
+    public List<Transaction> raportBetweenDate(LocalDate before, LocalDate after) {
+        return transactionRepository.findByBetweenDate(before, after);
     }
-
 
 }
