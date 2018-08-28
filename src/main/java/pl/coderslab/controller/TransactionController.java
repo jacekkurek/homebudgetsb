@@ -52,22 +52,8 @@ public class TransactionController {
 
         }
 
-//        java.util.Date data1 = new java.util.Date();
-//        java.sql.Date time_transaction = new java.sql.Date(data1.getTime());
-//
-//
-//        try {
-//            data1 =  new SimpleDateFormat("yyyy-MM-dd").parse(transaction.getTime_transaction());
-//            time_transaction = new java.sql.Date(data1.getTime());
-//
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-
         transaction.setTime_added(LocalDateTime.now());
-//        transaction.setTime_transaction(time_transaction);
         transactionRepository.save(transaction);
-        System.out.println(transaction.getTime_transaction());
         return "redirect:/transaction/all";
     }
 

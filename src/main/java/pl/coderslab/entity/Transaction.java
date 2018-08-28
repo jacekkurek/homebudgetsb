@@ -22,9 +22,6 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private LocalDateTime time_added;
-    //    @DateTimeFormat
-//    private DateTimeFormat time_transaction;
-    //   @DateTimeFormat
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date time_transaction;
     private String name;
