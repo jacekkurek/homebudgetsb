@@ -17,6 +17,7 @@
 </head>
 <body>
 <%@include file="../header.jsp" %>
+<%@include file="budget_menu.jsp" %></br>
 
 
 <table>
@@ -25,16 +26,16 @@
 
         <td>id</td>
         <td>name</td>
-        <td>saldo</td>
+        <td>description</td>
         <td>Akcja</td>
 
     </tr>
     </thead>
-    <c:forEach items="${budget}" var="a">
+    <c:forEach items="${budgets}" var="a">
         <tr>
             <td> ${a.id} </td>
             <td> ${a.name} </td>
-            <td>${a.saldo} </td>
+            <td>${a.description} </td>
             <td>
                 <a href="/budget/delete/${a.id}">delete</a>
                 <a href="/budget/edit/${a.id}">edit</a>

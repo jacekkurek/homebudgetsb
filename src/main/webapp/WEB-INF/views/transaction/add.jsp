@@ -17,6 +17,9 @@
 </head>
 <body>
 <%@include file="../header.jsp" %></br>
+<%@include file="transaction_menu.jsp" %></br>
+
+
 <form:form method="post" modelAttribute="transaction">
     <%@include file="transaction_form.jsp" %>
     <input type="submit" value="Save">

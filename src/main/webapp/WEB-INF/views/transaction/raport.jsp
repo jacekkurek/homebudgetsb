@@ -18,6 +18,8 @@
 <body>
 
 <%@include file="../header.jsp" %></br>
+<%@include file="transaction_menu.jsp" %></br>
+
 
 <table>
     <thead>
