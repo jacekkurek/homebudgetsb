@@ -36,10 +36,9 @@ public class TypeController {
     }
 
     @PostMapping("/add")
-    public String addNew(Model model, @Valid Type type, BindingResult result) {
+    public String addNew(@Valid Type type, BindingResult result) {
 
         if (result.hasErrors()) {
-            model.addAttribute("type", new Type());
             return "type/add";
         } else {
             typeService.save(type);
@@ -78,7 +77,7 @@ public class TypeController {
     }
 
     @PostMapping("/edit")
-    public String edit(Model model, @Valid Type type, BindingResult result) {
+    public String edit(@Valid Type type, BindingResult result) {
 
         if (result.hasErrors()) {
             return "type/edit";
