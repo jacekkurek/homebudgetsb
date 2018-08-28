@@ -9,6 +9,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Transaction;
 import pl.coderslab.repository.TransactionRepository;
+import pl.coderslab.service.TransactionService;
 
 import javax.validation.Valid;
 import javax.validation.Validator;
@@ -21,9 +22,11 @@ import java.util.List;
 public class TransactionController {
 
     private final TransactionRepository transactionRepository;
+    private final TransactionService transactionService;
 
-    public TransactionController(TransactionRepository transactionRepository) {
+    public TransactionController(TransactionRepository transactionRepository, TransactionService transactionService) {
         this.transactionRepository = transactionRepository;
+        this.transactionService = transactionService;
     }
 
     @Autowired
@@ -81,4 +84,11 @@ public class TransactionController {
         transactionRepository.save(transaction);
         return "redirect:/transaction/all";
     }
+
+    @GetMapping("/raport")
+    public String transactionRaport(Model model) {
+        model.addAttribute("traport", transactionService.makeTransactionRaport());
+        return "transaction/raport";
+    }
+
 }
