@@ -7,14 +7,15 @@
 <body>
 
 <%@include file="../header.jsp" %>
+<%@include file="type_menu.jsp"%>
 
-<h1>Type List</h1>
+<h1>All type</h1>
 
 <table>
     <thead>
     <tr>
         <td>Name</td>
-        <td>Operation</td>
+        <td>Action</td>
     </tr>
     </thead>
     <c:forEach items="${types}" var="type">
@@ -26,11 +27,9 @@
             </td>
         </tr>
     </c:forEach>
-    <tr>
-        <td></td>
-        <td><a href="/type/add">Add</a></td>
-    </tr>
 </table>
+
+<%@include file="../footer.jsp" %>
 
 </body>
 </html>

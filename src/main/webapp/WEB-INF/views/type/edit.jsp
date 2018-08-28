@@ -6,12 +6,15 @@
 </head>
 
 <%@include file="../header.jsp" %>
+<%@include file="type_menu.jsp"%>
 
 <h1>Edit</h1>
 
 <form:form method="post" modelAttribute="type">
     <%@include file="type_form.jsp" %>
 </form:form>
+
+<%@include file="../footer.jsp" %>
 
 </body>
 </html>
