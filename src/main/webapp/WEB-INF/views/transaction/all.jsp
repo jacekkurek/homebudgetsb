@@ -17,13 +17,12 @@
 </head>
 <body>
 
-<%@include file="../header.jsp" %></br>
-<%@include file="transaction_menu.jsp" %></br>
+<%@include file="../header.jsp" %>
+<%@include file="transaction_menu.jsp" %>
 
 <table>
     <thead>
     <tr>
-
         <td>id</td>
         <td>timeAdded</td>
         <td>timeTransaction</td>
@@ -32,24 +31,23 @@
         <td>Akcja</td>
     </tr>
     </thead>
-    <c:forEach items="${transactions}" var="budget">
+    <c:forEach items="${transactions}" var="transaction">
         <tr>
-            <td> ${a.id} </td>
-            <td> ${a.timeAdded} </td>
-            <td>${a.timeTransaction} </td>
-            <td>${a.name}</td>
-            <td>${a.value}</td>
+            <td>${transaction.id}</td>
+            <td>${transaction.timeAdded}</td>
+            <td>${transaction.timeTransaction}</td>
+            <td>${transaction.name}</td>
+            <td>${transaction.value}</td>
             <td>
-                <a href="/transaction/delete/${budget.id}">delete</a>
-                <a href="/transaction/edit/${budget.id}">edit</a>
+                <a href="/transaction/delete/${transaction.id}">delete</a>
+                <a href="/transaction/edit/${transaction.id}">edit</a>
             </td>
         </tr>
     </c:forEach>
 
 </table>
 
-
-<%@include file="../footer.jsp" %></br>
+<%@include file="../footer.jsp" %>
 
 </body>
 </html>
