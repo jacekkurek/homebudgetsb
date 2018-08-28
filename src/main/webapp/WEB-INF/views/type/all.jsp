@@ -9,7 +9,7 @@
 <%@include file="../header.jsp" %>
 <%@include file="type_menu.jsp"%>
 
-<h1>All type</h1>
+<h1>All Types</h1>
 
 <table>
     <thead>

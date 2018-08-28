@@ -23,14 +23,17 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private LocalDateTime time_added;
+    private LocalDateTime timeAdded;
+
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = false)
-    private LocalDate time_transaction;
+    private LocalDate timeTransaction;
+
     @Size(max = 50)
     @Column(length = 50)
     private String name;
+
     @NotNull
     @Digits(integer = 15, fraction = 2)
     @Column(precision = 15, scale = 2, nullable = false)
@@ -50,6 +53,5 @@ public class Transaction {
 
     @ManyToOne
     private Subcategory subcategory;
-
 
 }

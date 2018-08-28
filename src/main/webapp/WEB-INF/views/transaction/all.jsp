@@ -24,8 +24,8 @@
     <tr>
 
         <td>id</td>
-        <td>time_added</td>
-        <td>time_transaction</td>
+        <td>timeAdded</td>
+        <td>timeTransaction</td>
         <td>name</td>
         <td>value</td>
         <td>Akcja</td>
@@ -34,8 +34,8 @@
     <c:forEach items="${transactions}" var="a">
         <tr>
             <td> ${a.id} </td>
-            <td> ${a.time_added} </td>
-            <td>${a.time_transaction} </td>
+            <td> ${a.timeAdded} </td>
+            <td>${a.timeTransaction} </td>
             <td>${a.name}</td>
             <td>${a.value}</td>
             <td>
