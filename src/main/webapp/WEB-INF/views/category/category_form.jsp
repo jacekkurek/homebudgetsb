@@ -1,8 +1,10 @@
 
 <form:hidden path="id"/>
 
-name
+Name:
 <form:input path="name"/></<br>
+Budget:
+<form:select itemLabel="name" path="budget" items="${budgets}" /><br/>
 
 
 

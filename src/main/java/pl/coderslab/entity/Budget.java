@@ -28,4 +28,5 @@ public class Budget {
     @ManyToMany(mappedBy = "budgets")
     private List<User> users = new ArrayList<>();
 
+
 }

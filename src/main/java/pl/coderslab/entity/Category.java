@@ -19,6 +19,7 @@ public class Category {
     private Long id;
     @NotNull
     @Size(max = 25)
+    @Column(length = 25, nullable = false)
     private String name;
 
     @ManyToOne
