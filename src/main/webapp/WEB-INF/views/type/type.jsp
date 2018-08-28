@@ -6,11 +6,11 @@
 </head>
 <body>
 
-<h1><a href="/type/create">create</a></h1></br>
-<h1><a href="/type/read">read</a></h1></br>
-<h1><a href="/type/update">update</a></h1></br>
-<h1><a href="/type/delete">delete</a></h1></br>
-<h1><a href="/type/list">findAll/List</a></h1></br>
+<h1><a href="/type/add">Add</a></h1>
+<h1><a href="/type/read">Read</a></h1>
+<h1><a href="/type/edit">Edit</a></h1>
+<h1><a href="/type/delete">Delete</a></h1>
+<h1><a href="/type/all">FindAll/List</a></h1>
 
 </body>
 </html>

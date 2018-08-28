@@ -1,9 +1,9 @@
 package pl.coderslab.entity;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -15,7 +15,7 @@ public class Type {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+    @NotBlank
     @Size(max = 25)
     @Column(unique = true, nullable = false, length = 25)
     private String name;

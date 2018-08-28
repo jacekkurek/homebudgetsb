@@ -29,18 +29,18 @@ public class TypeController {
         return "type/type";
     }
 
-    @GetMapping("/create")
-    public String create(Model model) {
+    @GetMapping("/add")
+    public String addNew(Model model) {
         model.addAttribute("type", new Type());
-        return "type/create";
+        return "type/add";
     }
 
-    @PostMapping("/create")
-    public String create(Model model, @Valid Type type, BindingResult result) {
+    @PostMapping("/add")
+    public String addNew(Model model, @Valid Type type, BindingResult result) {
 
         if (result.hasErrors()) {
             model.addAttribute("type", new Type());
-            return "type/create";
+            return "type/add";
         } else {
             typeService.save(type);
             return "redirect:/type/all";
@@ -67,22 +67,21 @@ public class TypeController {
 
     }
 
-    @GetMapping("/update")
-    public String update(Model model, @RequestParam(required = false) Long id) {
+    @GetMapping("/edit")
+    public String edit(Model model, @RequestParam(required = false) Long id) {
         if (id == null) {
             model.addAttribute("type", new Type());
         } else {
             model.addAttribute("type", typeService.read(id));
         }
-        return "type/update";
+        return "type/edit";
     }
 
-    @PostMapping("/update")
-    public String update(Model model, @Valid Type type, BindingResult result) {
+    @PostMapping("/edit")
+    public String edit(Model model, @Valid Type type, BindingResult result) {
 
         if (result.hasErrors()) {
-            model.addAttribute("type", type);
-            return "type/update";
+            return "type/edit";
         } else {
             typeService.save(type);
             return "redirect:/type/all";
