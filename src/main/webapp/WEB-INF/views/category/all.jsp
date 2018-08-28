@@ -22,14 +22,16 @@
 <table>
     <thead>
     <tr>
-        <td>id</td>
-        <td>name</td>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Budget</td>
     </tr>
     </thead>
     <c:forEach items="${categories}" var="category">
         <tr>
             <td> ${category.id} </td>
             <td> ${category.name} </td>
+            <td> ${category.budget.name}</td>
             <td>
                 <a href="/category/delete/${category.id}">delete</a>
                 <a href="/category/edit/${category.id}">edit</a>

@@ -17,6 +17,7 @@
 </head>
 <body>
 <%@include file="../header.jsp" %></br>
+<%@include file="budget_menu.jsp" %></br>
 
 
 <form:form method="post"  modelAttribute="budget">

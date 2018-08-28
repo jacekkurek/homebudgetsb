@@ -26,8 +26,7 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    @Autowired
-    Validator validator;
+
 
     @GetMapping("/add")
     public String addNew(Model model) {
@@ -39,7 +38,7 @@ public class UserController {
     public String performNew(Model model, @Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println("EEEEEEEEE");
-            return "user/add";
+            return "user/all";
         }
 
         userRepository.save(user);

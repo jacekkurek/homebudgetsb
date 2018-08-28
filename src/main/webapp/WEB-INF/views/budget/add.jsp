@@ -11,13 +11,15 @@
            uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Add budget</title>
     <link rel="stylesheet" href="../../../resources/static/css/style.css">
 
 </head>
 <body>
 <%@include file="../header.jsp" %></br>
 <%@include file="budget_menu.jsp" %></br>
+
+<h3>Add new budget</h3>
 
 <form:form method="post" modelAttribute="budget">
     <%@include file="budget_form.jsp"%>

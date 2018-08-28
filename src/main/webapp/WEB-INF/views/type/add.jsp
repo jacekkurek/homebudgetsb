@@ -2,7 +2,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Add New</title>
+    <title>Add type</title>
+    <link rel="stylesheet" href="../../../../resources/static/css/style.css">
 </head>
 <body>
 

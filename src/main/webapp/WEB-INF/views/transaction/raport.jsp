@@ -10,6 +10,7 @@
 <body>
 
 <%@include file="../header.jsp" %>
+<%@include file="transaction_menu.jsp" %>
 
 <table>
     <thead>

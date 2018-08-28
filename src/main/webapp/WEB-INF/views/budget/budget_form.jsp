@@ -1,7 +1,7 @@
 <form:hidden path="id"/>
 
-name
+Name:
 <form:input path="name"/></<br>
-saldo
-<form:input path="saldo"/></<br>
+Description:
+<form:input path="description"/></<br>
 

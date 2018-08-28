@@ -21,8 +21,6 @@ public class TypeController {
         this.typeService = typeService;
     }
 
-    @Autowired
-    Validator validator;
 
     @RequestMapping("")
     public String home() {

@@ -18,7 +18,7 @@
 <%@include file="../header.jsp" %></br>
 <%@include file="subcategory_menu.jsp" %></br>
 
-<h1>Add new category</h1>
+<h1>Add new subcategory</h1>
 
 <form:form method="post" modelAttribute="subcategory">
     <%@include file="subcategory_form.jsp" %>

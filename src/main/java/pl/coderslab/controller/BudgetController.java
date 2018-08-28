@@ -27,17 +27,17 @@ public class BudgetController {
         this.budgetRepository = budgetRepository;
     }
 
-    @Autowired
-    Validator validator;
 
     @GetMapping("/add")
-    public String addNew(Model model) {
+    public String add(Model model) {
         model.addAttribute("budget", new Budget());
+        model.addAttribute("budgets", budgetRepository.findAll());
+
         return "budget/add";
     }
 
     @PostMapping("/add")
-    public String performNew(Model model, @Valid Budget budget, BindingResult result) {
+    public String add(Model model, @Valid Budget budget, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println("EEEEEEEEE");
             return "budget/add";
