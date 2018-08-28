@@ -6,9 +6,10 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Data
@@ -23,7 +24,21 @@ public class Transaction {
     private long id;
     private LocalDateTime time_added;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date time_transaction;
+    private LocalDate time_transaction;
+    @Size(max = 50)
     private String name;
+    @Digits(integer = 15, fraction = 2)
     private Double value;
+
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private Budget budget;
+
+    @ManyToOne
+    private Type type;
+
+    @ManyToOne
+    private Category category;
 }
