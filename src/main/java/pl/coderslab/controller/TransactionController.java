@@ -29,8 +29,6 @@ public class TransactionController {
         this.transactionService = transactionService;
     }
 
-    @Autowired
-    Validator validator;
 
     @GetMapping("/add")
     public String addNew(Model model) {

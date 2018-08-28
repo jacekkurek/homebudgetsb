@@ -16,6 +16,7 @@
 <body>
 <%@include file="../header.jsp" %>
 <%@include file="subcategory_menu.jsp" %></br>
+
 <h1>Edit subcategory</h1>
 
 <form:form method="post" modelAttribute="subcategory">

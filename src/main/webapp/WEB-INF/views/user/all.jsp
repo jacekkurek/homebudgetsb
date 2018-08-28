@@ -25,22 +25,21 @@
     <thead>
     <tr>
 
-        <td>id</td>
-        <td>name</td>
-        <td>saldo</td>
-        <td>salary</td>
-        <td>Akcja</td>
+        <td>Id</td>
+        <td>Name</td>
+        <td>PIN</td>
+        <td>Salary</td>
     </tr>
     </thead>
-    <c:forEach items="${users}" var="a">
+    <c:forEach items="${users}" var="budget">
         <tr>
-            <td> ${a.id} </td>
-            <td> ${a.name} </td>
-            <td>${a.pin} </td>
-            <td>${a.salary}</td>
+            <td> ${budget.id} </td>
+            <td> ${budget.name} </td>
+            <td> ${budget.pin} </td>
+            <td> ${budget.salary}</td>
             <td>
-                <a href="/user/delete/${a.id}">delete</a>
-                <a href="/user/edit/${a.id}">edit</a>
+                <a href="/user/delete/${budget.id}">delete</a>
+                <a href="/user/edit/${budget.id}">edit</a>
             </td>
         </tr>
     </c:forEach>

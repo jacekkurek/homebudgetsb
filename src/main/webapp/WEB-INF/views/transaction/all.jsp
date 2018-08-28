@@ -32,16 +32,16 @@
         <td>Akcja</td>
     </tr>
     </thead>
-    <c:forEach items="${transactions}" var="a">
+    <c:forEach items="${transactions}" var="budget">
         <tr>
-            <td> ${a.id} </td>
-            <td> ${a.time_added} </td>
-            <td>${a.time_transaction} </td>
-            <td>${a.name}</td>
-            <td>${a.value}</td>
+            <td> ${budget.id} </td>
+            <td> ${budget.time_added} </td>
+            <td>${budget.time_transaction} </td>
+            <td>${budget.name}</td>
+            <td>${budget.value}</td>
             <td>
-                <a href="/transaction/delete/${a.id}">delete</a>
-                <a href="/transaction/edit/${a.id}">edit</a>
+                <a href="/transaction/delete/${budget.id}">delete</a>
+                <a href="/transaction/edit/${budget.id}">edit</a>
             </td>
         </tr>
     </c:forEach>

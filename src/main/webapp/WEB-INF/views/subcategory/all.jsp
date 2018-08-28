@@ -22,9 +22,9 @@
 <table>
     <thead>
     <tr>
-        <td>id</td>
-        <td>name</td>
-        <td>category</td>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Category</td>
     </tr>
     </thead>
     <c:forEach items="${subcategories}" var="subcategory">
@@ -33,8 +33,8 @@
             <td> ${subcategory.name} </td>
             <td> ${subcategory.category.name} </td>
             <td>
-                <a href="/category/delete/${subcategory.id}">delete</a>
-                <a href="/category/edit/${subcategory.id}">edit</a>
+                <a href="/subcategory/delete/${subcategory.id}">delete</a>
+                <a href="/subcategory/edit/${subcategory.id}">edit</a>
             </td>
         </tr>
     </c:forEach>

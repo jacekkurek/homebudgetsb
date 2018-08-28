@@ -4,7 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.entity.Budget;
 import pl.coderslab.entity.Category;
+import pl.coderslab.repository.BudgetRepository;
 import pl.coderslab.repository.CategoryRepository;
 
 import javax.validation.Valid;
@@ -14,15 +16,17 @@ import javax.validation.Valid;
 public class CategoryController {
 
     private final CategoryRepository categoryRepository;
+    private final BudgetRepository budgetRepository;
 
-    public CategoryController(CategoryRepository categoryRepository) {
+    public CategoryController(CategoryRepository categoryRepository, BudgetRepository budgetRepository) {
         this.categoryRepository = categoryRepository;
+        this.budgetRepository = budgetRepository;
     }
-
 
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("category", new Category());
+        model.addAttribute("budgets", budgetRepository.findAll());
         return "category/add";
     }
 
