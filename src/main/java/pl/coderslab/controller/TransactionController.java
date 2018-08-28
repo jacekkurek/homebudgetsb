@@ -9,6 +9,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Transaction;
 import pl.coderslab.repository.TransactionRepository;
+import pl.coderslab.repository.UserRepository;
 import pl.coderslab.service.TransactionService;
 
 import javax.validation.Valid;
@@ -24,22 +25,25 @@ public class TransactionController {
 
     private final TransactionRepository transactionRepository;
     private final TransactionService transactionService;
+    private final UserRepository userRepository;
 
-    public TransactionController(TransactionRepository transactionRepository, TransactionService transactionService) {
+    public TransactionController(TransactionRepository transactionRepository, TransactionService transactionService, UserRepository userRepository) {
         this.transactionRepository = transactionRepository;
         this.transactionService = transactionService;
+        this.userRepository = userRepository;
     }
-
 
     @GetMapping("/add")
     public String addNew(Model model) {
         model.addAttribute("transaction", new Transaction());
+        model.addAttribute("users", userRepository.findAll());
         return "transaction/add";
     }
 
     @PostMapping("/add")
-    public String performNew(@Valid Transaction transaction, BindingResult result) {
+    public String performNew(Model model, @Valid Transaction transaction, BindingResult result) {
         if (result.hasErrors()) {
+            //          model.addAttribute("users",userRepository.findAll());
             System.out.println("EEEEEEEEE");
             List<FieldError> errors = result.getFieldErrors();
             for (FieldError error : errors) {
@@ -70,6 +74,8 @@ public class TransactionController {
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable long id) {
         model.addAttribute("transaction", transactionRepository.findOne(id));
+        model.addAttribute("users", userRepository.findAll());
+
         return "transaction/edit";
     }
 
@@ -77,6 +83,7 @@ public class TransactionController {
     public String editPerform(Model model, @Valid Transaction transaction, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println("EEEEEEEEE");
+            model.addAttribute("users", userRepository.findAll());
 
             return "transaction/edit";
         }

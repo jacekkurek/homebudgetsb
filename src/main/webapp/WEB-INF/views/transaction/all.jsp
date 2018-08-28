@@ -28,6 +28,7 @@
         <td>timeTransaction</td>
         <td>name</td>
         <td>value</td>
+        <td>user</td>
         <td>Akcja</td>
     </tr>
     </thead>
@@ -38,6 +39,7 @@
             <td>${transaction.timeTransaction}</td>
             <td>${transaction.name}</td>
             <td>${transaction.value}</td>
+            <td>${transaction.user.id}</td>
             <td>
                 <a href="/transaction/delete/${transaction.id}">delete</a>
                 <a href="/transaction/edit/${transaction.id}">edit</a>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.entity.Budget;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.BudgetRepository;
+import pl.coderslab.repository.UserRepository;
 
 import javax.validation.Valid;
 import javax.validation.Validator;
@@ -22,16 +23,17 @@ import javax.validation.Validator;
 public class BudgetController {
 
     private final BudgetRepository budgetRepository;
+    private final UserRepository userRepository;
 
-    public BudgetController(BudgetRepository budgetRepository) {
+    public BudgetController(BudgetRepository budgetRepository, UserRepository userRepository) {
         this.budgetRepository = budgetRepository;
+        this.userRepository = userRepository;
     }
-
 
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("budget", new Budget());
-        model.addAttribute("budgets", budgetRepository.findAll());
+        model.addAttribute("users", userRepository.findAll());
 
         return "budget/add";
     }
@@ -39,8 +41,12 @@ public class BudgetController {
     @PostMapping("/add")
     public String add(Model model, @Valid Budget budget, BindingResult result) {
         if (result.hasErrors()) {
+            model.addAttribute("users", userRepository.findAll());
+
             System.out.println("EEEEEEEEE");
+
             return "budget/add";
+
         }
 
         budgetRepository.save(budget);
@@ -62,12 +68,16 @@ public class BudgetController {
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable long id) {
         model.addAttribute("budget", budgetRepository.findOne(id));
+        model.addAttribute("users", userRepository.findAll());
+
         return "budget/edit";
     }
 
     @PostMapping("/edit/*")
     public String editPerform(Model model, @Valid Budget budget, BindingResult result) {
         if (result.hasErrors()) {
+            model.addAttribute("users", userRepository.findAll());
+
             System.out.println("EEEEEEEEE");
 
             return "budget/edit";
