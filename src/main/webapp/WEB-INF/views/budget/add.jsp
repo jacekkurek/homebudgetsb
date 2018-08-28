@@ -17,6 +17,8 @@
 </head>
 <body>
 <%@include file="../header.jsp" %></br>
+<%@include file="budget_menu.jsp" %></br>
+
 <form:form method="post" modelAttribute="budget">
     <%@include file="budget_form.jsp"%>
     <input type="submit" value="Save">

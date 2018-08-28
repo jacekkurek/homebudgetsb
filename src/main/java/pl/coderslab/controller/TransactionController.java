@@ -8,16 +8,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Transaction;
-import pl.coderslab.entity.User;
 import pl.coderslab.repository.TransactionRepository;
 
 import javax.validation.Valid;
 import javax.validation.Validator;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.sql.*;
 
 @Controller
 @RequestMapping("/transaction")
@@ -52,22 +48,8 @@ public class TransactionController {
 
         }
 
-//        java.util.Date data1 = new java.util.Date();
-//        java.sql.Date time_transaction = new java.sql.Date(data1.getTime());
-//
-//
-//        try {
-//            data1 =  new SimpleDateFormat("yyyy-MM-dd").parse(transaction.getTime_transaction());
-//            time_transaction = new java.sql.Date(data1.getTime());
-//
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-
         transaction.setTime_added(LocalDateTime.now());
-//        transaction.setTime_transaction(time_transaction);
         transactionRepository.save(transaction);
-        System.out.println(transaction.getTime_transaction());
         return "redirect:/transaction/all";
     }
 
