@@ -5,8 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Subcategory;
-import pl.coderslab.repository.CategoryRepository;
-import pl.coderslab.repository.SubcategoryRepository;
+import pl.coderslab.service.CategoryService;
+import pl.coderslab.service.SubcategoryService;
+
 
 import javax.validation.Valid;
 
@@ -14,18 +15,18 @@ import javax.validation.Valid;
 @RequestMapping("/subcategory")
 public class SubcategoryController {
 
-    private final SubcategoryRepository subcategoryRepository;
-    private final CategoryRepository categoryRepository;
+    private final SubcategoryService subcategoryService;
+    private final CategoryService categoryService;
 
-    public SubcategoryController(SubcategoryRepository subcategoryRepository, CategoryRepository categoryRepository) {
-        this.subcategoryRepository = subcategoryRepository;
-        this.categoryRepository = categoryRepository;
+    public SubcategoryController(SubcategoryService subcategoryService, CategoryService categoryService) {
+        this.subcategoryService = subcategoryService;
+        this.categoryService = categoryService;
     }
 
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("subcategory", new Subcategory());
-        model.addAttribute("categories", categoryRepository.findAll());
+        model.addAttribute("categories", categoryService.findAll());
         return "subcategory/add";
     }
 
@@ -34,25 +35,25 @@ public class SubcategoryController {
         if (result.hasErrors()) {
             return "subcategory/add";
         }
-        subcategoryRepository.save(subcategory);
+        subcategoryService.save(subcategory);
         return "redirect:/subcategory/all";
     }
 
     @GetMapping("/all")
     public String all(Model model) {
-        model.addAttribute("subcategories", subcategoryRepository.findAll());
+        model.addAttribute("subcategories", subcategoryService.findAll());
         return "subcategory/all";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        subcategoryRepository.delete(id);
+        subcategoryService.delete(id);
         return "redirect:/subcategory/all";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable Long id) {
-        model.addAttribute("subcategory", subcategoryRepository.findOne(id));
+        model.addAttribute("subcategory", subcategoryService.findOne(id));
         return "subcategory/edit";
     }
 
@@ -62,7 +63,7 @@ public class SubcategoryController {
             System.out.println("EEEEEEEEE");
             return "user/edit";
         }
-        subcategoryRepository.save(subcategory);
+        subcategoryService.save(subcategory);
         return "redirect:/subcategory/all";
     }
 

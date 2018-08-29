@@ -4,10 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.entity.Budget;
 import pl.coderslab.entity.Category;
-import pl.coderslab.repository.BudgetRepository;
-import pl.coderslab.repository.CategoryRepository;
+import pl.coderslab.service.BudgetService;
+import pl.coderslab.service.CategoryService;
 
 import javax.validation.Valid;
 
@@ -15,18 +14,18 @@ import javax.validation.Valid;
 @RequestMapping("/category")
 public class CategoryController {
 
-    private final CategoryRepository categoryRepository;
-    private final BudgetRepository budgetRepository;
+    private final CategoryService categoryService;
+    private final BudgetService budgetService;
 
-    public CategoryController(CategoryRepository categoryRepository, BudgetRepository budgetRepository) {
-        this.categoryRepository = categoryRepository;
-        this.budgetRepository = budgetRepository;
+    public CategoryController(CategoryService categoryService, BudgetService budgetService) {
+        this.categoryService = categoryService;
+        this.budgetService = budgetService;
     }
 
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("category", new Category());
-        model.addAttribute("budgets", budgetRepository.findAll());
+        model.addAttribute("budgets", budgetService.findAll());
         return "category/add";
     }
 
@@ -35,25 +34,26 @@ public class CategoryController {
         if (result.hasErrors()) {
             return "category/add";
         }
-        categoryRepository.save(category);
+        categoryService.save(category);
         return "redirect:/category/all";
     }
 
     @GetMapping("/all")
     public String all(Model model) {
-        model.addAttribute("categories", categoryRepository.findAll());
+        model.addAttribute("categories", categoryService.findAll());
         return "category/all";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        categoryRepository.delete(id);
+        categoryService.delete(id);
         return "redirect:/category/all";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable Long id) {
-        model.addAttribute("category", categoryRepository.findOne(id));
+        model.addAttribute("category", categoryService.findOne(id));
+        model.addAttribute("budgets", budgetService.findAll());
         return "category/edit";
     }
 
@@ -63,7 +63,7 @@ public class CategoryController {
             System.out.println("EEEEEEEEE");
             return "user/edit";
         }
-        categoryRepository.save(category);
+        categoryService.save(category);
         return "redirect:/category/all";
     }
 

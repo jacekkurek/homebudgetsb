@@ -38,7 +38,7 @@ public class UserController {
     public String performNew(Model model, @Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println("EEEEEEEEE");
-            return "user/all";
+            return "user/add";
         }
 
         userRepository.save(user);
