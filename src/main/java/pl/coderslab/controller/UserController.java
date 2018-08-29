@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.entity.User;
+import pl.coderslab.repository.BudgetRepository;
 import pl.coderslab.repository.UserRepository;
 
 import javax.validation.Valid;
@@ -22,11 +23,12 @@ public class UserController {
 
     private final UserRepository userRepository;
 
-    public UserController(UserRepository userRepository) {
+    public UserController(UserRepository userRepository, BudgetRepository budgetRepository) {
         this.userRepository = userRepository;
     }
 
-
+    @Autowired
+    Validator validator;
 
     @GetMapping("/add")
     public String addNew(Model model) {
@@ -38,7 +40,7 @@ public class UserController {
     public String performNew(Model model, @Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println("EEEEEEEEE");
-            return "user/add";
+            return "user/all";
         }
 
         userRepository.save(user);
@@ -48,6 +50,7 @@ public class UserController {
     @GetMapping("/all")
     public String list(Model model) {
         model.addAttribute("users", userRepository.findAll());
+
         return "user/all";
     }
 

@@ -27,6 +27,9 @@
         <td>Id</td>
         <td>Name</td>
         <td>Description</td>
+        <td>Users</td>
+        <td>Akcja</td>
+
 
     </tr>
     </thead>
@@ -35,6 +38,9 @@
             <td> ${budget.id} </td>
             <td> ${budget.name} </td>
             <td>${budget.description} </td>
+            <td><c:forEach items="${budget.users}" var="a">
+                ${a.name},
+            </c:forEach></td>
             <td>
                 <a href="/budget/delete/${budget.id}">delete</a>
                 <a href="/budget/edit/${budget.id}">edit</a>
@@ -45,7 +51,6 @@
 </table>
 
 <%@include file="../footer.jsp" %></br>
-
 
 
 </body>

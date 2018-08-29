@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.entity.Budget;
+import pl.coderslab.repository.UserRepository;
 import pl.coderslab.service.BudgetService;
+
 
 import javax.validation.Valid;
 import javax.validation.Validator;
@@ -21,10 +23,9 @@ import javax.validation.Validator;
 public class BudgetController {
 
     private final BudgetService budgetService;
+    private final UserRepository userRepository;
 
-    public BudgetController(BudgetService budgetService) {
-        this.budgetService = budgetService;
-    }
+
 
 
     @GetMapping("/add")
@@ -37,6 +38,8 @@ public class BudgetController {
     @PostMapping("/add")
     public String add(Model model, @Valid Budget budget, BindingResult result) {
         if (result.hasErrors()) {
+            model.addAttribute("users", userRepository.findAll());
+
             System.out.println("EEEEEEEEE");
             return "budget/add";
         }
@@ -66,6 +69,8 @@ public class BudgetController {
     @PostMapping("/edit/*")
     public String edit(Model model, @Valid Budget budget, BindingResult result) {
         if (result.hasErrors()) {
+            model.addAttribute("users", userRepository.findAll());
+
             System.out.println("EEEEEEEEE");
 
             return "budget/edit";

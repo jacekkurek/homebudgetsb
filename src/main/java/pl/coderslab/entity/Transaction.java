@@ -37,7 +37,7 @@ public class Transaction {
     @NotNull
     @Digits(integer = 15, fraction = 2)
     @Column(precision = 15, scale = 2, nullable = false)
-    private Double value;
+    private Double value;   //
 
     @ManyToOne
     private User user;

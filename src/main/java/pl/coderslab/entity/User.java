@@ -3,6 +3,7 @@ package pl.coderslab.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
@@ -18,6 +19,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
+@ToString(exclude = {"budgets"})    // przerwanie aby się nie zapę
+// tlało przez sąsiednie tabele
 public class User {
 
     @Id
@@ -33,6 +36,6 @@ public class User {
     @Column(precision = 15, scale = 2)
     private double salary;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "users")
     private List<Budget> budgets = new ArrayList<>();
 }

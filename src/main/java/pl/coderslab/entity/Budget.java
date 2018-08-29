@@ -29,7 +29,7 @@ public class Budget {
     private String description;
 
 
-    @ManyToMany(mappedBy = "budgets")
+    @ManyToMany
     private List<User> users = new ArrayList<>();
 
 
