@@ -29,6 +29,10 @@
         <td>name</td>
         <td>value</td>
         <td>user</td>
+        <td>budget</td>
+        <td>category</td>
+        <td>subcategory</td>
+        <td>type</td>
         <td>Akcja</td>
     </tr>
     </thead>
@@ -40,6 +44,10 @@
             <td>${transaction.name}</td>
             <td>${transaction.value}</td>
             <td>${transaction.user.name}</td>
+            <td>${transaction.budget.name}</td>
+            <td>${transaction.category.name}</td>
+            <td>${transaction.subcategory.name}</td>
+            <td>${transaction.type.name}</td>
             <td>
                 <a href="/transaction/delete/${transaction.id}">delete</a>
                 <a href="/transaction/edit/${transaction.id}">edit</a>

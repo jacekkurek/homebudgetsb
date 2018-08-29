@@ -7,5 +7,13 @@ name
 value
 <form:input path="value"/></<br>
 User:
-<form:select itemLabel="name" path="user" items="${users}"/><br/>
+<form:select itemLabel="name" path="user" items="${users}"/>
+Budget:
+<form:select itemLabel="name" path="budget" items="${budgets}"/>
+Category:
+<form:select itemLabel="name" path="category" items="${categories}"/>
+Subcategory:
+<form:select itemLabel="name" path="subcategory" items="${subcategories}"/>
+Type:
+<form:select itemLabel="name" path="type" items="${types}"/><br/>
 
