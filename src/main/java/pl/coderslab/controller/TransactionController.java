@@ -8,8 +8,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Transaction;
 import pl.coderslab.repository.*;
-import pl.coderslab.service.TransactionService;
-import pl.coderslab.service.TypeService;
+import pl.coderslab.service.*;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
@@ -21,43 +20,41 @@ import java.util.List;
 @Log
 public class TransactionController {
 
-    private final TransactionRepository transactionRepository;
     private final TransactionService transactionService;
-    private final UserRepository userRepository;
+    private final UserService userService;
     private final TypeService typeService;
-    private final BudgetRepository budgetRepository;
-    private final CategoryRepository categoryRepository;
-    private final SubcategoryRepository subcategoryRepository;
+    private final BudgetService budgetService;
+    private final CategoryService categoryService;
+    private final SubcategoryService subcategoryService;
 
-    public TransactionController(TransactionRepository transactionRepository, TransactionService transactionService, UserRepository userRepository, TypeService typeService, BudgetRepository budgetRepository, CategoryRepository categoryRepository, SubcategoryRepository subcategoryRepository) {
-        this.transactionRepository = transactionRepository;
+    public TransactionController(TransactionService transactionService, UserService userService, TypeService typeService, BudgetService budgetService, CategoryService categoryService, SubcategoryService subcategoryService) {
         this.transactionService = transactionService;
-        this.userRepository = userRepository;
+        this.userService = userService;
         this.typeService = typeService;
-        this.budgetRepository = budgetRepository;
-        this.categoryRepository = categoryRepository;
-        this.subcategoryRepository = subcategoryRepository;
+        this.budgetService = budgetService;
+        this.categoryService = categoryService;
+        this.subcategoryService = subcategoryService;
     }
 
     @GetMapping("/add")
     public String addNew(Model model) {
         model.addAttribute("transaction", new Transaction());
-        model.addAttribute("users", userRepository.findAll());
+        model.addAttribute("users", userService.findAll());
         model.addAttribute("types", typeService.finAll());
-        model.addAttribute("budgets", budgetRepository.findAll());
-        model.addAttribute("categories", categoryRepository.findAll());
-        model.addAttribute("subcategories", subcategoryRepository.findAll());
+        model.addAttribute("budgets", budgetService.findAll());
+        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("subcategories", subcategoryService.findAll());
         return "transaction/add";
     }
 
     @PostMapping("/add")
     public String performNew(Model model, @Valid Transaction transaction, BindingResult result) {
         if (result.hasErrors()) {
-            model.addAttribute("users", userRepository.findAll());
+            model.addAttribute("users", userService.findAll());
             model.addAttribute("types", typeService.finAll());
-            model.addAttribute("budgets", budgetRepository.findAll());
-            model.addAttribute("categories", categoryRepository.findAll());
-            model.addAttribute("subcategories", subcategoryRepository.findAll());
+            model.addAttribute("budgets", budgetService.findAll());
+            model.addAttribute("categories", categoryService.findAll());
+            model.addAttribute("subcategories", subcategoryService.findAll());
 
             System.out.println("EEEEEEEEE");
             List<FieldError> errors = result.getFieldErrors();
@@ -70,30 +67,30 @@ public class TransactionController {
         }
 
         transaction.setTimeAdded(LocalDateTime.now());
-        transactionRepository.save(transaction);
+        transactionService.save(transaction);
         return "redirect:/transaction/all";
     }
 
     @GetMapping("/all")
     public String list(Model model) {
-        model.addAttribute("transactions", transactionRepository.findAll());
+        model.addAttribute("transactions", transactionService.findAll());
         return "transaction/all";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable long id) {
-        transactionRepository.delete(id);
+        transactionService.delete(id);
         return "redirect:/transaction/all";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable long id) {
-        model.addAttribute("transaction", transactionRepository.findOne(id));
-        model.addAttribute("users", userRepository.findAll());
+        model.addAttribute("transaction", transactionService.findOne(id));
+        model.addAttribute("users", userService.findAll());
         model.addAttribute("types", typeService.finAll());
-        model.addAttribute("budgets", budgetRepository.findAll());
-        model.addAttribute("categories", categoryRepository.findAll());
-        model.addAttribute("subcategories", subcategoryRepository.findAll());
+        model.addAttribute("budgets", budgetService.findAll());
+        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("subcategories", subcategoryService.findAll());
 
         return "transaction/edit";
     }
@@ -102,31 +99,31 @@ public class TransactionController {
     public String editPerform(Model model, @Valid Transaction transaction, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println("EEEEEEEEE");
-            model.addAttribute("users", userRepository.findAll());
+            model.addAttribute("users", userService.findAll());
             model.addAttribute("types", typeService.finAll());
-            model.addAttribute("budgets", budgetRepository.findAll());
-            model.addAttribute("categories", categoryRepository.findAll());
-            model.addAttribute("subcategories", subcategoryRepository.findAll());
+            model.addAttribute("budgets", budgetService.findAll());
+            model.addAttribute("categories", categoryService.findAll());
+            model.addAttribute("subcategories", subcategoryService.findAll());
 
             return "transaction/edit";
         }
         transaction.setTimeAdded(LocalDateTime.now());
-        transactionRepository.save(transaction);
+        transactionService.save(transaction);
         return "redirect:/transaction/all";
     }
 
-    @GetMapping("/raport")
-    public String raport() {
-        return "transaction/raport";
+    @GetMapping("/report")
+    public String report() {
+        return "transaction/report";
     }
 
-    @PostMapping("/raport")
-    public String raport(Model model, @RequestParam String after, @RequestParam String before) {
+    @PostMapping("/report")
+    public String report(Model model, @RequestParam String after, @RequestParam String before) {
         LocalDate afterDate = LocalDate.parse(after);
         LocalDate beforeDate = LocalDate.parse(before);
-        List<Transaction> raports = transactionService.raportBetweenDate(afterDate, beforeDate);
-        model.addAttribute("raports", raports);
-        return "transaction/raport";
+        List<Transaction> reports = transactionService.reportBetweenDate(afterDate, beforeDate);
+        model.addAttribute("reports", reports);
+        return "transaction/report";
     }
 
 }

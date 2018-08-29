@@ -19,7 +19,7 @@ public class TypeService {
         return typeRepository.save(type);
     }
 
-    public Type read(Long id) {
+    public Type findOne(Long id) {
         return typeRepository.findOne(id);
     }
 

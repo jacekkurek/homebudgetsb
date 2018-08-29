@@ -14,12 +14,10 @@ public class BudgetService {
 
     public BudgetService(BudgetRepository budgetRepository) { this.budgetRepository = budgetRepository;}
 
-    public Budget save (Budget budget){
-        return budgetRepository.save(budget);
+    public Budget save (Budget budget){ return budgetRepository.save(budget);
     }
 
-    public Budget findOne (Long id){
-        return budgetRepository.findOne(id);
+    public Budget findOne (Long id){ return budgetRepository.findOne(id);
     }
 
     public void delete(Long id){

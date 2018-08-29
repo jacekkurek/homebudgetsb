@@ -54,6 +54,7 @@ public class SubcategoryController {
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable Long id) {
         model.addAttribute("subcategory", subcategoryService.findOne(id));
+        model.addAttribute("categories", categoryService.findAll());
         return "subcategory/edit";
     }
 

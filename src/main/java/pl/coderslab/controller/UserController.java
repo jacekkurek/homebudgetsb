@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.entity.User;
-import pl.coderslab.repository.BudgetRepository;
-import pl.coderslab.repository.UserRepository;
+import pl.coderslab.service.BudgetService;
+import pl.coderslab.service.UserService;
 
 import javax.validation.Valid;
 import javax.validation.Validator;
@@ -21,10 +21,11 @@ import javax.validation.Validator;
 @Log
 public class UserController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
+    
 
-    public UserController(UserRepository userRepository, BudgetRepository budgetRepository) {
-        this.userRepository = userRepository;
+    public UserController(UserService userService, BudgetService budgetService) {
+        this.userService = userService;
     }
 
     @Autowired
@@ -43,26 +44,26 @@ public class UserController {
             return "user/all";
         }
 
-        userRepository.save(user);
+        userService.save(user);
         return "redirect:/user/all";
     }
 
     @GetMapping("/all")
     public String list(Model model) {
-        model.addAttribute("users", userRepository.findAll());
+        model.addAttribute("users", userService.findAll());
 
         return "user/all";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable long id) {
-        userRepository.delete(id);
+        userService.delete(id);
         return "redirect:/user/all";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable long id) {
-        model.addAttribute("user", userRepository.findOne(id));
+        model.addAttribute("user", userService.findOne(id));
         return "user/edit";
     }
 
@@ -73,7 +74,7 @@ public class UserController {
 
             return "user/edit";
         }
-        userRepository.save(user);
+        userService.save(user);
         return "redirect:/user/all";
     }
 }

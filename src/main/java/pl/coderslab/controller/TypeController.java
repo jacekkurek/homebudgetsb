@@ -56,7 +56,7 @@ public class TypeController {
         if (id == null) {
             model.addAttribute("information", "Nie podałeś id!");
         } else {
-            Type type = typeService.read(id);
+            Type type = typeService.findOne(id);
             model.addAttribute("type", type);
         }
 
@@ -69,7 +69,7 @@ public class TypeController {
         if (id == null) {
             model.addAttribute("type", new Type());
         } else {
-            model.addAttribute("type", typeService.read(id));
+            model.addAttribute("type", typeService.findOne(id));
         }
         return "type/edit";
     }

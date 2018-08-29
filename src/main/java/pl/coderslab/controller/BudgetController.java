@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.entity.Budget;
 import pl.coderslab.repository.UserRepository;
 import pl.coderslab.service.BudgetService;
+import pl.coderslab.service.UserService;
 
 
 import javax.validation.Valid;
@@ -23,22 +24,24 @@ import javax.validation.Validator;
 public class BudgetController {
 
     private final BudgetService budgetService;
-    private final UserRepository userRepository;
+    private final UserService userService;
 
-
-
+    public BudgetController(BudgetService budgetService, UserService userService) {
+        this.budgetService = budgetService;
+        this.userService = userService;
+    }
 
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("budget", new Budget());
-
+        model.addAttribute("users", userService.findAll());
         return "budget/add";
     }
 
     @PostMapping("/add")
     public String add(Model model, @Valid Budget budget, BindingResult result) {
         if (result.hasErrors()) {
-            model.addAttribute("users", userRepository.findAll());
+            model.addAttribute("users", userService.findAll());
 
             System.out.println("EEEEEEEEE");
             return "budget/add";
@@ -63,13 +66,14 @@ public class BudgetController {
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable Long id) {
         model.addAttribute("budget", budgetService.findOne(id));
+        model.addAttribute("users", userService.findAll());
         return "budget/edit";
     }
 
     @PostMapping("/edit/*")
     public String edit(Model model, @Valid Budget budget, BindingResult result) {
         if (result.hasErrors()) {
-            model.addAttribute("users", userRepository.findAll());
+            model.addAttribute("users", userService.findAll());
 
             System.out.println("EEEEEEEEE");
 
