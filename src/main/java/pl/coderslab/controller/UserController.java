@@ -38,14 +38,15 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public String performNew(Model model, @Valid User user, BindingResult result) {
+    public String performNew(@Valid User user, BindingResult result) {
+
         if (result.hasErrors()) {
-            System.out.println("EEEEEEEEE");
-            return "user/all";
+            return "user/add";
         }
 
         userService.save(user);
         return "redirect:/user/all";
+
     }
 
     @GetMapping("/all")
@@ -56,25 +57,27 @@ public class UserController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable long id) {
+    public String delete(@PathVariable Long id) {
         userService.delete(id);
         return "redirect:/user/all";
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(Model model, @PathVariable long id) {
+    public String edit(Model model, @PathVariable Long id) {
         model.addAttribute("user", userService.findOne(id));
         return "user/edit";
     }
 
     @PostMapping("/edit/*")
-    public String editPerform(Model model, @Valid User user, BindingResult result) {
-        if (result.hasErrors()) {
-            System.out.println("EEEEEEEEE");
+    public String editPerform(@Valid User user, BindingResult result) {
 
+        if (result.hasErrors()) {
             return "user/edit";
         }
+
         userService.save(user);
         return "redirect:/user/all";
+
     }
+
 }
