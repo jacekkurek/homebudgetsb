@@ -7,10 +7,7 @@ import lombok.ToString;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,9 +26,9 @@ public class User {
     @Size(max = 25)
     @Column(length = 25, unique = true)
     private String name;
-    @Digits(integer=4, fraction=0)
+    @Pattern(regexp = "\\d{4}")
     @Column(precision = 4)
-    private int pin;
+    private String pin;
     @Digits(integer=15, fraction=2)
     @Column(precision = 15, scale = 2)
     private double salary;
