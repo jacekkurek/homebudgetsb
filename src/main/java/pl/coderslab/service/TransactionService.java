@@ -1,8 +1,8 @@
 package pl.coderslab.service;
 
 import org.springframework.stereotype.Service;
-import pl.coderslab.entity.*;
-import pl.coderslab.repository.*;
+import pl.coderslab.entity.Transaction;
+import pl.coderslab.repository.TransactionRepository;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -39,4 +39,7 @@ public class TransactionService {
         return transactionRepository.findAll();
     }
 
+    public Double sumByType(String a) {
+        return transactionRepository.sumByType(a);
+    }
 }

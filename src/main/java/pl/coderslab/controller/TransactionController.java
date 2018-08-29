@@ -126,4 +126,23 @@ public class TransactionController {
         return "transaction/report";
     }
 
+    @GetMapping("/salary")
+    public String salary(Model model) {
+        model.addAttribute("users", userService.findAll());
+
+        return "transaction/salary";
+    }
+
+
+    @PostMapping("/salary")
+    public String salary(Model model, @RequestParam String a) {
+        model.addAttribute("users", userService.findAll());
+
+        Double st = transactionService.sumByType(a);
+
+        model.addAttribute("st", st);
+
+        return "transaction/salary";
+    }
+
 }
