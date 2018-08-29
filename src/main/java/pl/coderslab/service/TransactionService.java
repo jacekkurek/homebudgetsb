@@ -39,7 +39,12 @@ public class TransactionService {
         return transactionRepository.findAll();
     }
 
-    public Double sumByType(String a) {
-        return transactionRepository.sumByType(a);
+    public Double sumByType(String username, LocalDate before, LocalDate after) {
+        return transactionRepository.sumByType(username, before, after);
+    }
+
+    public double salaryByName(String username) {
+        return transactionRepository.salaryByName(username);
+
     }
 }

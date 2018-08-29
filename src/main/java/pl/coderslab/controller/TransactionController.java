@@ -135,12 +135,23 @@ public class TransactionController {
 
 
     @PostMapping("/salary")
-    public String salary(Model model, @RequestParam String a) {
+    public String salary(Model model, @RequestParam String username, @RequestParam String before, @RequestParam String after) {
         model.addAttribute("users", userService.findAll());
+        LocalDate afterDate = LocalDate.parse(after);
+        LocalDate beforeDate = LocalDate.parse(before);
 
-        Double st = transactionService.sumByType(a);
+        Double st = transactionService.sumByType(username, afterDate, beforeDate);
+        double salary = transactionService.salaryByName(username);
 
-        model.addAttribute("st", st);
+        int b = 0;
+
+        if (st >= salary) {
+            b = 1;
+        } else {
+            b = 2;
+        }
+
+        model.addAttribute("b", b);
 
         return "transaction/salary";
     }
