@@ -1,8 +1,5 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
-<%@include file="../headersb.jsp" %>
+<%@include file="headersb.jsp" %>
 
 
 <div id="page-wrapper">
@@ -16,16 +13,19 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                   Add type form
+                    Basic Form Elements
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-
-                            <form:form method="post" modelAttribute="type">
-                                <%@include file="type_form.jsp" %>
-                            </form:form>
-
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Text Input</label>
+                                    <input class="form-control">
+                                    <p class="help-block">Example block-level help text here.</p>
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit Button</button>
+                            </form>
                         </div>
 
                     </div>
@@ -38,4 +38,5 @@
         <!-- /.col-lg-12 -->
     </div>
 </div>
-<%@include file="../footersb.jsp" %>
+<!-- /#page-wrapper -->
+<%@include file="footersb.jsp" %>
