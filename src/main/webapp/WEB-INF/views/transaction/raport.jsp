@@ -21,6 +21,11 @@
         <td>Time Transaction</td>
         <td>Name</td>
         <td>Value</td>
+        <td>user</td>
+        <td>budget</td>
+        <td>category</td>
+        <td>subcategory</td>
+        <td>type</td>
         <td>Action</td>
     </tr>
     </thead>
@@ -31,6 +36,11 @@
             <td>${raport.timeTransaction}</td>
             <td>${raport.name}</td>
             <td>${raport.value}</td>
+            <td>${raport.user.name}</td>
+            <td>${raport.budget.name}</td>
+            <td>${raport.category.name}</td>
+            <td>${raport.subcategory.name}</td>
+            <td>${raport.type.name}</td>
             <td>
                 <a href="/transaction/delete/${raport.id}">Delete</a>
                 <a href="/transaction/edit/${raport.id}">Edit</a>

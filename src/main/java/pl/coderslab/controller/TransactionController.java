@@ -110,6 +110,7 @@ public class TransactionController {
 
             return "transaction/edit";
         }
+        transaction.setTimeAdded(LocalDateTime.now());
         transactionRepository.save(transaction);
         return "redirect:/transaction/all";
     }
