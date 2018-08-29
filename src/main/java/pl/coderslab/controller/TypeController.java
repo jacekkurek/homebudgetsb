@@ -1,6 +1,5 @@
 package pl.coderslab.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,7 +8,6 @@ import pl.coderslab.entity.Type;
 import pl.coderslab.service.TypeService;
 
 import javax.validation.Valid;
-import javax.validation.Validator;
 
 @Controller
 @RequestMapping("/type")
@@ -19,12 +17,6 @@ public class TypeController {
 
     public TypeController(TypeService typeService) {
         this.typeService = typeService;
-    }
-
-
-    @RequestMapping("")
-    public String home() {
-        return "type/type";
     }
 
     @GetMapping("/add")
@@ -38,39 +30,16 @@ public class TypeController {
 
         if (result.hasErrors()) {
             return "type/add";
-        } else {
-            typeService.save(type);
-            return "redirect:/type/all";
         }
+
+        typeService.save(type);
+        return "redirect:/type/all";
 
     }
 
-    @GetMapping("/read")
-    public String read() {
-        return "type/read";
-    }
-
-    @PostMapping("/read")
-    public String read(Model model, @RequestParam Long id) {
-
-        if (id == null) {
-            model.addAttribute("information", "Nie podałeś id!");
-        } else {
-            Type type = typeService.findOne(id);
-            model.addAttribute("type", type);
-        }
-
-        return "type/read";
-
-    }
-
-    @GetMapping("/edit")
-    public String edit(Model model, @RequestParam(required = false) Long id) {
-        if (id == null) {
-            model.addAttribute("type", new Type());
-        } else {
-            model.addAttribute("type", typeService.findOne(id));
-        }
+    @GetMapping("/edit/{id}")
+    public String edit(Model model, @PathVariable Long id) {
+        model.addAttribute("type", typeService.findOne(id));
         return "type/edit";
     }
 
@@ -79,28 +48,10 @@ public class TypeController {
 
         if (result.hasErrors()) {
             return "type/edit";
-        } else {
-            typeService.save(type);
-            return "redirect:/type/all";
         }
 
-    }
-
-    @GetMapping("/delete")
-    public String delete() {
-        return "type/delete";
-    }
-
-    @PostMapping("/delete")
-    public String delete(Model model, @RequestParam Long id) {
-
-        if (id == null) {
-            model.addAttribute("information", "Nie podałeś id!");
-            return "type/delete";
-        } else {
-            typeService.delete(id);
-            return "redirect:/type/all";
-        }
+        typeService.save(type);
+        return "redirect:/type/all";
 
     }
 
@@ -110,10 +61,9 @@ public class TypeController {
         return "redirect:/type/all";
     }
 
-
     @GetMapping("/all")
     public String findAll(Model model) {
-        model.addAttribute("types", typeService.finAll());
+        model.addAttribute("types", typeService.findAll());
         return "type/all";
     }
 

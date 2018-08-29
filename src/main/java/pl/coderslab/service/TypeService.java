@@ -27,7 +27,7 @@ public class TypeService {
         typeRepository.delete(id);
     }
 
-    public List<Type> finAll() {
+    public List<Type> findAll() {
         return typeRepository.findAll();
     }
 
