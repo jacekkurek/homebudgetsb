@@ -20,7 +20,13 @@
 <%@include file="../header.jsp" %>
 <%@include file="transaction_menu.jsp" %>
 
-${st}
+
+<c:if test="${b==1}">
+    <h1>MASZ ZA MAŁO PIENIĘDZY</h1>
+</c:if>
+<c:if test="${b==2}">
+    <h1>WYSTARCZY CI NA WYDATKI</h1>
+</c:if>
 
 <%--<table>--%>
 <%--<thead>--%>
@@ -66,11 +72,15 @@ ${st}
         <tr>
             <td>
                 <%--<label>name <input name="a"/></label>--%>
-                <select name='a'>
+                User:
+                <select name='username'>
+
                     <c:forEach items="${users}" var="user">
                         <option value="${user.name}">${user.name}</option>
                     </c:forEach>
                 </select>
+                <label>After <input name="after" type="date"/></label>
+                <label>Before <input name="before" type="date"/></label>
                 <input type="submit" value="Find">
             </td>
         </tr>
