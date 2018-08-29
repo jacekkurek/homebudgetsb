@@ -1,3 +1,5 @@
+<!-- /#page-wrapper -->
+
 </div>
 <!-- /#wrapper -->
 

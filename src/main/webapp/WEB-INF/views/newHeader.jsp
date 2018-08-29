@@ -37,6 +37,7 @@
 
 <div id="wrapper">
 
+    <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -78,7 +79,7 @@
                             <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/user/newAdd">Add New User</a>
+                                <a href="/user/add">Add New User</a>
                             </li>
                             <li>
                                 <a href="/user/all">Show Table</a>
