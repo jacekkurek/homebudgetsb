@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<!-- Navigation -->
 <%@include file="../tableHeader.jsp" %>
 
 <div id="page-wrapper" style="min-height: 474px;">

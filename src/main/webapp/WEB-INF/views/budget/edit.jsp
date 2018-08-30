@@ -1,31 +1,40 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: adam
-  Date: 27.08.18
-  Time: 12:43
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form"
-           uri="http://www.springframework.org/tags/form" %>
-<html>
-<head>
-    <title>Title</title>
-    <link rel="stylesheet" href="../../../resources/static/css/style.css">
 
-</head>
-<body>
-<%@include file="../header.jsp" %></br>
-<%@include file="budget_menu.jsp" %></br>
+<%@include file="../formHeader.jsp" %>
 
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Edit Budget</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Edit budget form
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
 
-<form:form method="post"  modelAttribute="budget">
-    <%@include file="budget_form.jsp"%>
-    <input type="submit" value="Update">
-</form:form>
+                            <form:form method="post" modelAttribute="budget">
+                                <%@include file="budget_form.jsp"%>
+                            </form:form>
 
-<%@include file="../footer.jsp" %></br>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>
+<!-- /#page-wrapper -->
 
-</body>
-</html>
+<%@include file="../formFooter.jsp" %>

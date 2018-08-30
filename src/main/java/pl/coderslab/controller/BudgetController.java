@@ -40,15 +40,15 @@ public class BudgetController {
 
     @PostMapping("/add")
     public String add(Model model, @Valid Budget budget, BindingResult result) {
+
         if (result.hasErrors()) {
             model.addAttribute("users", userService.findAll());
-
-            System.out.println("EEEEEEEEE");
             return "budget/add";
         }
 
         budgetService.save(budget);
         return "redirect:/budget/all";
+
     }
 
     @GetMapping("/all")
@@ -72,14 +72,15 @@ public class BudgetController {
 
     @PostMapping("/edit/*")
     public String edit(Model model, @Valid Budget budget, BindingResult result) {
+
         if (result.hasErrors()) {
             model.addAttribute("users", userService.findAll());
-
-            System.out.println("EEEEEEEEE");
-
             return "budget/edit";
         }
+
         budgetService.save(budget);
         return "redirect:/budget/all";
+
     }
+
 }
