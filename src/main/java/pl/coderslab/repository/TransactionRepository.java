@@ -17,10 +17,6 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
     @Query("select t from Transaction t where timeTransaction > :after and timeTransaction < :before")
     List<Transaction> findByBetweenDate(@Param("after") LocalDate after,@Param("before") LocalDate before);
 
-//    @Query("select sum(value) from Transaction t where t.type.name = 'planned_income' and t.user.name = :a " +
-//            "and t.timeTransaction < t.timeTransaction + 1 MONTH")
-//    Double sumByTypea(@Param("a") String a);
-
     @Query("select sum(value) from Transaction t where t.type.name = 'planned_income' and t.user.name = :username " +
             " and timeTransaction > :after and timeTransaction < :before")
     Double sumByType(@Param("username") String username, @Param("after") LocalDate after, @Param("before") LocalDate before);
