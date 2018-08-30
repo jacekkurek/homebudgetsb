@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!-- Navigation -->
-<%@include file="../newHeader.jsp"%>
+<%@include file="../formHeader.jsp"%>
 
 <div id="page-wrapper" style="min-height: 474px;">
     <div class="row">
@@ -38,4 +38,4 @@
 </div>
 <!-- /#page-wrapper -->
 
-<%@include file="../newFooter.jsp"%>
+<%@include file="../formFooter.jsp"%>

@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@include file="../newHeader.jsp" %>
+<%@include file="../formHeader.jsp" %>
 
 <div id="page-wrapper">
     <div class="row">
@@ -36,4 +36,4 @@
     </div>
 </div>
 
-<%@include file="../newFooter.jsp" %>
+<%@include file="../formFooter.jsp" %>
