@@ -43,7 +43,7 @@ public class TypeController {
         return "type/edit";
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/edit/*")
     public String edit(@Valid Type type, BindingResult result) {
 
         if (result.hasErrors()) {
