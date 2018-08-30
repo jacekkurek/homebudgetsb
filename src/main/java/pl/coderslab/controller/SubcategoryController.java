@@ -31,12 +31,14 @@ public class SubcategoryController {
     }
 
     @PostMapping("/add")
-    public String add(Model model, @Valid Subcategory subcategory, BindingResult result) {
+    public String add(@Valid Subcategory subcategory, BindingResult result) {
+
         if (result.hasErrors()) {
             return "subcategory/add";
         }
         subcategoryService.save(subcategory);
         return "redirect:/subcategory/all";
+
     }
 
     @GetMapping("/all")
@@ -59,13 +61,14 @@ public class SubcategoryController {
     }
 
     @PostMapping("/edit/*")
-    public String edit(Model model, @ModelAttribute Subcategory subcategory, BindingResult result) {
+    public String edit(@Valid Subcategory subcategory, BindingResult result) {
+
         if (result.hasErrors()) {
-            System.out.println("EEEEEEEEE");
             return "user/edit";
         }
         subcategoryService.save(subcategory);
         return "redirect:/subcategory/all";
+
     }
 
 }
