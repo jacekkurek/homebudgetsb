@@ -30,12 +30,15 @@ public class CategoryController {
     }
 
     @PostMapping("/add")
-    public String add(Model model, @Valid Category category, BindingResult result) {
+    public String add(@Valid Category category, BindingResult result) {
+
         if (result.hasErrors()) {
             return "category/add";
         }
+
         categoryService.save(category);
         return "redirect:/category/all";
+
     }
 
     @GetMapping("/all")
@@ -58,13 +61,15 @@ public class CategoryController {
     }
 
     @PostMapping("/edit/*")
-    public String edit(Model model, @ModelAttribute Category category, BindingResult result) {
+    public String edit(@Valid Category category, BindingResult result) {
+
         if (result.hasErrors()) {
-            System.out.println("EEEEEEEEE");
             return "user/edit";
         }
+
         categoryService.save(category);
         return "redirect:/category/all";
+
     }
 
 }
