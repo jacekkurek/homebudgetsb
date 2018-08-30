@@ -39,6 +39,9 @@
                     <li>
                         <a href="/transaction/report">Report</a>
                     </li>
+                    <li>
+                        <a href="/transaction/salary">Salary</a>
+                    </li>
                 </ul>
             </li>
             <li>
