@@ -1,3 +1,5 @@
+<%@ taglib prefix="for" uri="http://www.springframework.org/tags/form" %>
+
 <div class="form-group">
     <form:hidden path="id"/>
     <form:label path="name">Name</form:label>

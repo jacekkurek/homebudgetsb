@@ -114,6 +114,9 @@
                             <li>
                                 <a href="/transaction/all">Show Table</a>
                             </li>
+                            <li>
+                                <a href="/transaction/report">Report</a>
+                            </li>
                         </ul>
                     </li>
                     <li>

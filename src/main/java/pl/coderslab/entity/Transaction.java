@@ -3,6 +3,7 @@ package pl.coderslab.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private LocalDateTime timeAdded;
 
     @NotNull
@@ -30,6 +31,7 @@ public class Transaction {
     @Column(nullable = false)
     private LocalDate timeTransaction;
 
+    @NotBlank
     @Size(max = 50)
     @Column(length = 50)
     private String name;

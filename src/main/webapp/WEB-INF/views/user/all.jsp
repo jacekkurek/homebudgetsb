@@ -32,14 +32,14 @@
                         <tbody>
                         <c:forEach items="${users}" var="user">
                             <tr>
-                                <td> ${user.id}</td>
-                                <td> ${user.name}</td>
-                                <td> ${user.pin}</td>
-                                <td> ${user.salary}</td>
+                                <td>${user.id}</td>
+                                <td>${user.name}</td>
+                                <td>${user.pin}</td>
+                                <td>${user.salary}</td>
                                 <td>
-                                    <a href="/user/delete/${user.id}">delete</a>
+                                    <a href="/user/delete/${user.id}">Delete</a>
                                     <span> / </span>
-                                    <a href="/user/edit/${user.id}">edit</a>
+                                    <a href="/user/edit/${user.id}">Edit</a>
                                 </td>
                             </tr>
                         </c:forEach>

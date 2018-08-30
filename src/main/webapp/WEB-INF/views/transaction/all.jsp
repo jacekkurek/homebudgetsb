@@ -1,63 +1,71 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: adam
-  Date: 27.08.18
-  Time: 14:32
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form"
-           uri="http://www.springframework.org/tags/form" %>
-<html>
-<head>
-    <title>Title</title>
-    <link rel="stylesheet" href="../../../resources/static/css/style.css">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-</head>
-<body>
+<!-- Navigation -->
+<%@include file="../tableHeader.jsp" %>
 
-<%@include file="../header.jsp" %>
-<%@include file="transaction_menu.jsp" %>
+<div id="page-wrapper" style="min-height: 474px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Transactions</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Table transactions
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <table width="100%" class="table table-hover" id="dataTables-example">
+                        <thead>
+                        <tr>
+                            <td>Id</td>
+                            <td>User</td>
+                            <td>Type</td>
+                            <td>Value</td>
+                            <td>Name</td>
+                            <td>Budget</td>
+                            <td>Category</td>
+                            <td>Subcategory</td>
+                            <td>Time Added</td>
+                            <td>Time Transaction</td>
+                            <td>Delete/Edit</td>
+                        </tr>
+                        </thead>
+                        <c:forEach items="${transactions}" var="transaction">
+                            <tr>
+                                <td>${transaction.id}</td>
+                                <td>${transaction.user.name}</td>
+                                <td>${transaction.type.name}</td>
+                                <td>${transaction.value}</td>
+                                <td>${transaction.name}</td>
+                                <td>${transaction.budget.name}</td>
+                                <td>${transaction.category.name}</td>
+                                <td>${transaction.subcategory.name}</td>
+                                <td>${transaction.timeAdded}</td>
+                                <td>${transaction.timeTransaction}</td>
+                                <td>
+                                    <a href="/transaction/delete/${transaction.id}">Delete</a>
+                                    <span> / </span>
+                                    <a href="/transaction/edit/${transaction.id}">Edit</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>
+<!-- /#page-wrapper -->
 
-<table>
-    <thead>
-    <tr>
-        <td>id</td>
-        <td>timeAdded</td>
-        <td>timeTransaction</td>
-        <td>name</td>
-        <td>value</td>
-        <td>user</td>
-        <td>budget</td>
-        <td>category</td>
-        <td>subcategory</td>
-        <td>type</td>
-        <td>Akcja</td>
-    </tr>
-    </thead>
-    <c:forEach items="${transactions}" var="transaction">
-        <tr>
-            <td>${transaction.id}</td>
-            <td>${transaction.timeAdded}</td>
-            <td>${transaction.timeTransaction}</td>
-            <td>${transaction.name}</td>
-            <td>${transaction.value}</td>
-            <td>${transaction.user.name}</td>
-            <td>${transaction.budget.name}</td>
-            <td>${transaction.category.name}</td>
-            <td>${transaction.subcategory.name}</td>
-            <td>${transaction.type.name}</td>
-            <td>
-                <a href="/transaction/delete/${transaction.id}">delete</a>
-                <a href="/transaction/edit/${transaction.id}">edit</a>
-            </td>
-        </tr>
-    </c:forEach>
+<%@include file="../tableFooter.jsp" %>
 
-</table>
 
-<%@include file="../footer.jsp" %>
-
-</body>
-</html>
