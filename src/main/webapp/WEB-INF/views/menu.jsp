@@ -10,7 +10,7 @@
                         <a href="/user/add">Add New User</a>
                     </li>
                     <li>
-                        <a href="/user/all">Show Table</a>
+                        <a href="/user/all">Show All</a>
                     </li>
                 </ul>
             </li>
@@ -21,7 +21,7 @@
                         <a href="/budget/add">Add New Budgets</a>
                     </li>
                     <li>
-                        <a href="/budget/all">Show Table</a>
+                        <a href="/budget/all">Show All</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -34,7 +34,7 @@
                         <a href="/transaction/add">Add New Transactions</a>
                     </li>
                     <li>
-                        <a href="/transaction/all">Show Table</a>
+                        <a href="/transaction/all">Show All</a>
                     </li>
                     <li>
                         <a href="/transaction/report">Report</a>
@@ -51,7 +51,7 @@
                         <a href="/category/add">Add New Categories</a>
                     </li>
                     <li>
-                        <a href="/category/all">Show Table</a>
+                        <a href="/category/all">Show All</a>
                     </li>
                 </ul>
             </li>
@@ -62,7 +62,7 @@
                         <a href="/subcategory/add">Add New Subcategories</a>
                     </li>
                     <li>
-                        <a href="/subcategory/all">Show Table</a>
+                        <a href="/subcategory/all">Show All</a>
                     </li>
                 </ul>
             </li>
@@ -73,7 +73,7 @@
                         <a href="/type/add">Add New Type</a>
                     </li>
                     <li>
-                        <a href="/type/all">Show Table</a>
+                        <a href="/type/all">Show All</a>
                     </li>
                 </ul>
             </li>
