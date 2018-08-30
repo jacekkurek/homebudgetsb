@@ -14,7 +14,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Add type form
+                    <i class="fa fa-edit fa-fw"></i> Add type form
                 </div>
                 <div class="panel-body">
                     <div class="row">

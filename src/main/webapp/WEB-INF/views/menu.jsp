@@ -7,10 +7,10 @@
                     <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/user/add">Add New User</a>
+                        <a href="/user/add"><i class="fa fa-edit fa-fw"></i> Add New User</a>
                     </li>
                     <li>
-                        <a href="/user/all">Show All</a>
+                        <a href="/user/all"><i class="fa fa-table fa-fw"></i> Show All</a>
                     </li>
                 </ul>
             </li>
@@ -18,10 +18,10 @@
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Budgets<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/budget/add">Add New Budgets</a>
+                        <a href="/budget/add"><i class="fa fa-edit fa-fw"></i> Add New Budgets</a>
                     </li>
                     <li>
-                        <a href="/budget/all">Show All</a>
+                        <a href="/budget/all"><i class="fa fa-table fa-fw"></i> Show All</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -31,10 +31,10 @@
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/transaction/add">Add New Transactions</a>
+                        <a href="/transaction/add"><i class="fa fa-edit fa-fw"></i> Add New Transactions</a>
                     </li>
                     <li>
-                        <a href="/transaction/all">Show All</a>
+                        <a href="/transaction/all"><i class="fa fa-table fa-fw"></i> Show All</a>
                     </li>
                     <li>
                         <a href="/transaction/report">Report</a>
@@ -48,10 +48,10 @@
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Categories<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/category/add">Add New Categories</a>
+                        <a href="/category/add"><i class="fa fa-edit fa-fw"></i> Add New Categories</a>
                     </li>
                     <li>
-                        <a href="/category/all">Show All</a>
+                        <a href="/category/all"><i class="fa fa-table fa-fw"></i> Show All</a>
                     </li>
                 </ul>
             </li>
@@ -59,10 +59,10 @@
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Subcategories<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/subcategory/add">Add New Subcategories</a>
+                        <a href="/subcategory/add"><i class="fa fa-edit fa-fw"></i> Add New Subcategories</a>
                     </li>
                     <li>
-                        <a href="/subcategory/all">Show All</a>
+                        <a href="/subcategory/all"><i class="fa fa-table fa-fw"></i> Show All</a>
                     </li>
                 </ul>
             </li>
@@ -70,10 +70,10 @@
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Types<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/type/add">Add New Type</a>
+                        <a href="/type/add"><i class="fa fa-edit fa-fw"></i> Add New Type</a>
                     </li>
                     <li>
-                        <a href="/type/all">Show All</a>
+                        <a href="/type/all"><i class="fa fa-table fa-fw"></i> Show All</a>
                     </li>
                 </ul>
             </li>

@@ -15,7 +15,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Edit user form
+                    <i class="fa fa-edit fa-fw"></i> Edit user form
                 </div>
                 <div class="panel-body">
                     <div class="row">

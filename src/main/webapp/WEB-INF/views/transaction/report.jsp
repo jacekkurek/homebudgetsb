@@ -15,7 +15,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Form transactions
+                    <i class="fa fa-edit fa-fw"></i> Transactions form
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -43,7 +43,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Table transactions
+                    <i class="fa fa-table fa-fw"></i> Transactions Table
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
