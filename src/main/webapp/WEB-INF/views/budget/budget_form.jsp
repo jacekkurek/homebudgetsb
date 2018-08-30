@@ -13,8 +13,8 @@
     <form:input path="description" cssClass="form-control"/>
 </div>
 <div class="form-group">
-    <form:label path="user">User</form:label>
-    <form:select path="user" itemLabel="name" cssClass="form-control" items="${users}"/>
+    <form:label path="users">User</form:label>
+    <form:select path="users" itemLabel="name" cssClass="form-control" items="${users}"/>
 </div>
 
 <button type="submit" class="btn btn-default">Submit</button>
