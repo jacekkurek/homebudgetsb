@@ -15,23 +15,38 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
+                    Form transactions
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <form method="post">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>After</label>
+                                    <input name="after" type="date" class="form-control"/>
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Before</label>
+                                    <input name="before" type="date" class="form-control"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
                     Table transactions
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <div class="row">
-                        <form method="post">
-                            <div class="col-sm-4">
-                                <label>After</label>
-                                <input name="after" type="date" class="form-control"/>
-                            </div>
-                            <div class="col-sm-4">
-                                <label>Before</label>
-                                <input name="before" type="date" class="form-control"/>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </div>
-                        </form>
-                    </div>
                     <table width="100%" class="table table-hover" id="dataTables-example">
                         <thead>
                         <tr>
