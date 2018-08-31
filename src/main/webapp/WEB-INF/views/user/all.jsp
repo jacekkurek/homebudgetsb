@@ -33,7 +33,7 @@
                             <tr>
                                 <td>${user.id}</td>
                                 <td>${user.name}</td>
-                                <td>${user.pin}</td>
+                                <td>${user.password}</td>
                                 <td>${user.salary}</td>
                                 <td>
                                     <a href="/user/delete/${user.id}">Delete</a>

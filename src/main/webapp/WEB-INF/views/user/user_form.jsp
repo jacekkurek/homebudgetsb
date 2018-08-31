@@ -9,8 +9,8 @@
     <p/>
 </div>
 <div class="form-group">
-    <form:label path="pin">Pin</form:label>
-    <form:input path="pin" cssClass="form-control"/>
+    <form:label path="password">Pin</form:label>
+    <form:input path="password" cssClass="form-control"/>
     <p class="form-group has-error">
         <form:errors path="pin" element="label" cssClass="control-label help-block"/>
     <p/>

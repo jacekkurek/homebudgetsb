@@ -61,7 +61,13 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li>
+                        <form action="/logout" method="post">
+                            <%--<a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>--%>
+                            <button type="submit" class="center-block">
+                                <i class="fa fa-sign-out fa-fw"></i> Logout
+                            </button>
+                        </form>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
