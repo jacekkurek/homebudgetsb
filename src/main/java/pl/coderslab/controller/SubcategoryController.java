@@ -34,6 +34,7 @@ public class SubcategoryController {
     public String add(@Valid Subcategory subcategory, BindingResult result) {
 
         if (result.hasErrors()) {
+            System.out.println("eeeeeeee");
             return "subcategory/add";
         }
         subcategoryService.save(subcategory);

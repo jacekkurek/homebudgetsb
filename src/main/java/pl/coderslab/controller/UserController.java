@@ -44,7 +44,12 @@ public class UserController {
             return "user/add";
         }
 
-        userService.save(user);
+        try {
+            userService.save(user);
+        } catch (Exception e) {
+            return "user/add";
+        }
+
         return "redirect:/user/all";
 
     }

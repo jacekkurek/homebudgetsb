@@ -46,7 +46,12 @@ public class BudgetController {
             return "budget/add";
         }
 
-        budgetService.save(budget);
+        try {
+            budgetService.save(budget);
+        } catch (Exception e) {
+            return "budget/add";
+        }
+
         return "redirect:/budget/all";
 
     }
