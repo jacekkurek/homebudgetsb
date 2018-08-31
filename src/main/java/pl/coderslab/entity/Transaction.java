@@ -41,19 +41,19 @@ public class Transaction {
     @Column(precision = 15, scale = 2, nullable = false)
     private Double value;   //
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private User user;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Budget budget;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Type type;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Category category;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Subcategory subcategory;
 
 }

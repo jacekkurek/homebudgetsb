@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Data
@@ -21,5 +22,8 @@ public class Type {
     @Size(max = 25)
     @Column(unique = true, nullable = false, length = 25)
     private String name;
+
+    @OneToMany(mappedBy = "type", cascade = CascadeType.REMOVE)
+    private List<Transaction> transactions;
 
 }

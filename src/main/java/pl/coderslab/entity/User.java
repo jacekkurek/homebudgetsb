@@ -41,4 +41,7 @@ public class User {
     @ManyToMany(mappedBy = "users")
     private List<Budget> budgets = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<Transaction> transactions;
+
 }
