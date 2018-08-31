@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.entity.Budget;
+import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
 import pl.coderslab.service.BudgetService;
 import pl.coderslab.service.UserService;
@@ -64,7 +65,11 @@ public class BudgetController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
-        budgetService.delete(id);
+
+        User u = userService.findOne(id);
+        if (u.getBudgets().size() == 1) {
+            budgetService.delete(id);
+        }
         return "redirect:/budget/all";
     }
 

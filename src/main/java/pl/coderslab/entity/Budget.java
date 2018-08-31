@@ -31,7 +31,7 @@ public class Budget {
     @Size(max = 255)
     private String description;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private List<User> users = new ArrayList<>();
 
     @OneToMany(mappedBy = "budget", cascade = CascadeType.REMOVE)
