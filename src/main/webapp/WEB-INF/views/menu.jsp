@@ -18,7 +18,7 @@
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Budgets<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/budget/add"><i class="fa fa-edit fa-fw"></i> Add New Budgets</a>
+                        <a href="/budget/add"><i class="fa fa-edit fa-fw"></i> Add New Budget</a>
                     </li>
                     <li>
                         <a href="/budget/all"><i class="fa fa-table fa-fw"></i> Show All</a>
@@ -31,7 +31,7 @@
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/transaction/add"><i class="fa fa-edit fa-fw"></i> Add New Transactions</a>
+                        <a href="/transaction/add"><i class="fa fa-edit fa-fw"></i> Add New Transaction</a>
                     </li>
                     <li>
                         <a href="/transaction/all"><i class="fa fa-table fa-fw"></i> Show All</a>
@@ -48,7 +48,7 @@
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Categories<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/category/add"><i class="fa fa-edit fa-fw"></i> Add New Categories</a>
+                        <a href="/category/add"><i class="fa fa-edit fa-fw"></i> Add New Category</a>
                     </li>
                     <li>
                         <a href="/category/all"><i class="fa fa-table fa-fw"></i> Show All</a>
@@ -59,7 +59,7 @@
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Subcategories<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/subcategory/add"><i class="fa fa-edit fa-fw"></i> Add New Subcategories</a>
+                        <a href="/subcategory/add"><i class="fa fa-edit fa-fw"></i> Add New Subcategory</a>
                     </li>
                     <li>
                         <a href="/subcategory/all"><i class="fa fa-table fa-fw"></i> Show All</a>

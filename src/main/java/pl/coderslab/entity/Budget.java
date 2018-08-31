@@ -1,5 +1,6 @@
 package pl.coderslab.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,9 +32,11 @@ public class Budget {
     @Size(max = 255)
     private String description;
 
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.PERSIST)
     private List<User> users = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "budget", cascade = CascadeType.REMOVE)
     private List<Transaction> transactions;
 

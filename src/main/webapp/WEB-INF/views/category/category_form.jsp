@@ -6,6 +6,7 @@
         <form:errors path="name" element="label" cssClass="control-label help-block"/>
     <p/>
 </div>
+
 <div class="form-group">
     <label for="users">User name</label>
     <select id="users" class="form-control">
@@ -15,6 +16,7 @@
         </c:forEach>
     </select>
 </div>
+
 <div class="form-group" id="hiddenSelect" style="display: none">
     <form:label path="budget">Budget</form:label>
     <form:select id="budgets" path="budget" itemLabel="name"  cssClass="form-control"/>
@@ -42,12 +44,14 @@
     var budgetList = $('#budgets');
     var loadBudgets = function ()
     {
+        console.log("uruchomiono loadBudgets");
         $.ajax({
             url: "/api/budgets/" + selectedUserId,
             dataType: "json",
             type: "GET"
         })
             .done(function (budgets){
+                console.log("pobrano dane")
                 budgetList.html("").append($("<option></option>"));
                 budgets.forEach(budget => {
                     $("<option value='" + budget.id + "'>" + budget.name + "</option>").appendTo(budgetList);
