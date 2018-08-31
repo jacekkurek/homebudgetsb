@@ -24,6 +24,7 @@
                             <td>Id</td>
                             <td>Name</td>
                             <td>Budget</td>
+                            <td>User</td>
                         </tr>
                         </thead>
                         <c:forEach items="${categories}" var="category">
@@ -31,6 +32,10 @@
                                 <td>${category.id}</td>
                                 <td>${category.name}</td>
                                 <td>${category.budget.name}</td>
+                                <td>${category.budget}</td>
+                                <c:forEach items="${budget.users}" var="user">
+                                    <span>${user.name}, </span>
+                                </c:forEach>
                                 <td>
                                     <a href="/category/delete/${category.id}">Delete</a>
                                     <span> / </span>

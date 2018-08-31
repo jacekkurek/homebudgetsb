@@ -2,7 +2,6 @@ package pl.coderslab.service;
 
 import org.springframework.stereotype.Service;
 import pl.coderslab.entity.Budget;
-import pl.coderslab.entity.User;
 import pl.coderslab.repository.BudgetRepository;
 import pl.coderslab.repository.UserRepository;
 
@@ -29,6 +28,6 @@ public class BudgetService {
         return budgetRepository.findAll();
     }
 
-//    public List<User> findUsersBudgetList(Long id) {return budgetRepository.getBudgetUsersList(id);}
+
 
 }

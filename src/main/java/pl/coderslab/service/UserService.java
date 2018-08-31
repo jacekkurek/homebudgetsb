@@ -1,6 +1,7 @@
 package pl.coderslab.service;
 
 import org.springframework.stereotype.Service;
+import pl.coderslab.entity.Budget;
 import pl.coderslab.entity.User;
 import pl.coderslab.repository.UserRepository;
 
@@ -31,5 +32,6 @@ public class UserService {
     public List<User> findAll(){
         return userRepository.findAll();
     }
+
 
 }
